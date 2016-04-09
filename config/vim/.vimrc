@@ -2,7 +2,7 @@
 " vim: fdm=marker
 " Vundle ---------------------------------------------- {{{1
 " Install Vundle:
-" git clone http://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+" git clone git://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 "
 " Usage:
 " :BundleList            - list configured bundles
@@ -19,7 +19,7 @@ Bundle 'gmarik/vundle'
 
 Bundle 'taglist.vim'
 Bundle 'The-NERD-tree'
-" Bundle 'bufexplorer.zip'
+"Bundle 'bufexplorer.zip'
 Bundle 'SuperTab'
 
 Bundle 'Clam'
@@ -27,7 +27,7 @@ Bundle 'Conque-Shell'
 Bundle 'DoxygenToolkit.vim'
 Bundle 'Gundo'
 Bundle 'Tagbar'
-""Bundle 'UltiSnips'
+"Bundle 'UltiSnips'
 
 " Color Schemes
 Bundle 'badwolf'
@@ -85,11 +85,11 @@ set fileencodings=ucs-bom,utf8,cp936,gbk,big5,euc-jp,euc-kr,gb18130,latin1
 " Color Schemes --------------------------------------- {{{1
 if has("gui_running")
     "set background=dark
-    colorscheme jammy
+    colorscheme badwolf
 else
     set t_Co=256
     set background=dark
-    colorscheme bocau
+    colorscheme badwolf
 endif
 
 " Plugins --------------------------------------------- {{{1
