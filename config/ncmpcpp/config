@@ -1,0 +1,4 @@
+ncmpcpp_directory =         "~/.ncmpcpp"
+mpd_host =                  "/var/lib/mpd/socket"
+mpd_port =                  "6600"
+mpd_music_dir =             "/home/maxime/Music/"
