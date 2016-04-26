@@ -81,8 +81,8 @@ local layouts = {
 
 -- {{{ Tags
 tags = {
-   names = { " WEB ", " TERMINAL ", " FILES ", " OTHER " },
-   layout = { layouts[1], layouts[3], layouts[2], layouts[4] }
+   names = { " WEB ", " TERMINAL ", " FILES ", " MEDIA ", " READ ", " OTHER " },
+   layout = { layouts[3], layouts[3], layouts[2], layouts[3], layouts[3], layouts[4] }
 }
 for s = 1, screen.count() do
    tags[s] = awful.tag(tags.names, s, tags.layout)
@@ -707,21 +707,30 @@ awful.rules.rules = {
                      keys = clientkeys,
                      buttons = clientbuttons,
 	                   size_hints_honor = false } },
-    { rule = { class = "URxvt" },
+    { rule = { class = "Xfce4-terminal" },
           properties = { opacity = 0.99 } },
 
     { rule = { class = "Firefox" },
           properties = { tag = tags[1][1] } },
 
+    { rule = { class = "Thunar" },                                             
+          properties = { tag = tags[1][3] } },
+
+    { rule = { class = "Evince" },                                              
+          properties = { tag = tags[1][5] } },
+
+    { rule = { class = "Gnome-mplayer" },                                             
+          properties = { tag = tags[1][4] } },
+    
     { rule = { instance = "plugin-container" },
           properties = { tag = tags[1][1] } },
 
-	  { rule = { class = "Gimp" },
-     	    properties = { tag = tags[1][4] } },
+	-- { rule = { class = "Gimp" },
+    --  	    properties = { tag = tags[1][4] } },
 
-    { rule = { class = "Gimp", role = "gimp-image-window" },
-          properties = { maximized_horizontal = true,
-                         maximized_vertical = true } },
+    -- { rule = { class = "Gimp", role = "gimp-image-window" },
+    --       properties = { maximized_horizontal = true,
+    --                      maximized_vertical = true } },
 }
 -- }}}
 
