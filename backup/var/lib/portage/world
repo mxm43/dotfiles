@@ -34,6 +34,7 @@ www-client/firefox
 www-plugins/adobe-flash
 x11-apps/xrandr
 x11-drivers/nvidia-drivers
+x11-misc/compton
 x11-misc/slim
 x11-terms/xfce4-terminal
 x11-themes/faenza-icon-theme
@@ -41,4 +42,7 @@ x11-themes/gtk-chtheme
 x11-themes/gtk-engines
 x11-wm/awesome
 xfce-base/thunar
+xfce-base/xfce4-meta
+xfce-extra/xfce4-notifyd
 xfce-extra/xfce4-power-manager
+xfce-extra/xfce4-taskmanager
