@@ -73,3 +73,9 @@
 # required by media-video/vlc-2.2.1-r1::gentoo
 # required by vlc (argument)
 >=sys-libs/zlib-1.2.8-r1 minizip
+# required by dev-qt/qtcore-5.5.1-r1::gentoo
+# required by kde-frameworks/extra-cmake-modules-5.18.0::gentoo
+# required by kde-frameworks/oxygen-icons-5.18.0::gentoo
+# required by x11-themes/oxygen-molecule-3.2::gentoo
+# required by x11-themes/oxygen-molecule (argument)
+>=dev-libs/libpcre-8.38 pcre16
