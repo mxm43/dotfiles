@@ -1,5 +1,5 @@
 " Li Mingyi's ~/.vimrc
-" vim: fdm=marker
+"
 " Vundle ---------------------------------------------- {{{1
 " Install Vundle:
 " git clone git://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
@@ -15,29 +15,27 @@
 set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
 
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
-Bundle 'taglist.vim'
-Bundle 'The-NERD-tree'
-"Bundle 'bufexplorer.zip'
-Bundle 'SuperTab'
+Plugin 'scrooloose/nerdtree'
+"Plugin 'SuperTab'
 
-Bundle 'Clam'
-Bundle 'Conque-Shell'
-Bundle 'DoxygenToolkit.vim'
-Bundle 'Gundo'
-Bundle 'Tagbar'
-"Bundle 'UltiSnips'
+Plugin 'Clam'
+Plugin 'Conque-Shell'
+Plugin 'DoxygenToolkit.vim'
+Plugin 'Gundo'
+Plugin 'majutsushi/tagbar'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'powerline/fonts'
 
 " Color Schemes
-Bundle 'badwolf'
-Bundle 'bensday'
-Bundle 'bocau'
-Bundle 'desertEx'
-Bundle 'jammy.vim'
+Plugin 'tomasr/molokai'
 
-" C++
-Bundle 'OmniCppComplete'
+" Programming
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'SirVer/ultisnips'
 
 " Basic Settings -------------------------------------- {{{1
 set nocompatible
@@ -67,35 +65,51 @@ set autoindent
 set smartindent
 set cindent
 
-set cc=80
+set colorcolumn=80
 set hidden
 set hlsearch
 set incsearch
 set ruler
 set showcmd
 set title
+set smartcase
 set wildmenu
 set wildmode=list:longest,list:full
 
-" Omni Complete
-set ofu=syntaxcomplete#Complete
+set fdm=marker
+
+" ignore files inside vcs dirs
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
+" ignore object code files
+set wildignore+=*.o,*.obj,*.a,*.so,*.d
 
 set fileencodings=ucs-bom,utf8,cp936,gbk,big5,euc-jp,euc-kr,gb18130,latin1
+
+" Mouse Support --------------------------------------- {{{2
+if has('mouse')
+    set mouse=a
+endif
+
+" Fonts ----------------------------------------------- {{{2
+set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 11
+set guifontwide=WenQuanYi\ Micro\ Hei\ Mono
 
 " Color Schemes --------------------------------------- {{{1
 if has("gui_running")
     "set background=dark
-    colorscheme badwolf
+    colorscheme molokai
+
+    set guioptions-=T
+    "set guioptions-=m
+    "set guioptions-=r
+    "set guioptions-=L
 else
     set t_Co=256
     set background=dark
-    colorscheme badwolf
+    colorscheme molokai
 endif
 
 " Plugins --------------------------------------------- {{{1
-" bufExplorer ----------------------------------------- {{{2
-" http://www.vim.org/scripts/script.php?script_id=42
-
 " Clam ------------------------------------------------ {{{2
 " http://www.vim.org/scripts/script.php?script_id=4000
 " https://github.com/sjl/clam.vim
@@ -103,9 +117,14 @@ endif
 " hg clone https://bitbucket.org/sjl/clam.vim
 nnoremap <leader>c :Clam<Space>
 
+" CtrlP ----------------------------------------------- {{{2
+" https://github.com/ctrlpvim/ctrlp
+" git clone git://github.com/ctrlpvim/ctrlp.git
+let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
+
 " Doxygen --------------------------------------------- {{{2
 " http://www.vim.org/scripts/script.php?script_id=987
-let g:DoxygenToolkit_authorName="LiMingyi,laconism.LMY@gmail.com"
+let g:DoxygenToolkit_authorName="LiMingyi"
 
 let g:DoxygenToolkit_briefTag_pre="@Synopsis"
 let g:DoxygenToolkit_paramTag_pre="@Param:"
@@ -117,20 +136,20 @@ let g:DoxygenToolkit_returnTag="@Returns:"
 " hg clone https://bitbucket.org/sjl/gundo.vim
 nnoremap <leader>u :GundoToggle<CR>
 
-" OmniCppComplete ------------------------------------- {{{2
-" http://www.vim.org/scripts/script.php?script_id=1520
-let OmniCpp_GlobalScopeSearch = 1
-let OmniCpp_NamespaceSearch = 1
-let OmniCpp_GlobalScopeSearch = 1
+let g:gundo_right = 1
 
-let OmniCpp_MayCompleteDot = 1
-let OmniCpp_MayCompleteDot = 1
-let OmniCpp_MayCompleteScope = 0
+" NERDTree -------------------------------------------- {{{2
+" http://www.vim.org/scripts/script.php?script_id=1658
+" http://github.com/scrooloose/nerdtree
+" git clone git://github.com/scrooloose/nerdtree.git
+nnoremap <leader>nt :NERDTreeToggle<CR>
+
+let NERDTreeWinPos=1
 
 " SuperTab -------------------------------------------- {{{2
 " http://www.vim.org/scripts/script.php?script_id=1643
 " https://github.com/ervandew/supertab
-" #git clone git://github.com/ervandew/supertab.git
+" git clone git://github.com/ervandew/supertab.git
 let g:SuperTabRetainCompletionType=1
 
 " Tagbar ---------------------------------------------- {{{2
@@ -138,27 +157,45 @@ let g:SuperTabRetainCompletionType=1
 " http://github.com/majutsushi/tagbar
 " git clone git://github.com/majutsushi/tagbar.git
 nnoremap <leader>tb :TagbarToggle<CR>
-let g:tagbar_autoclose = 1
+
+let g:tagbar_left = 1
+let g:tagbar_width = 30
+
+" let g:tagbar_autoclose = 1
 let g:tagbar_autofocus = 1
 let g:tagbar_autoshowtag = 1
 
-let g:tagbar_type_vala = {
-  \ 'ctagstype': 'c#',
-  \ 'kinds': [
-    \ 'c:class',
-    \ 'd:macro',
-    \ 'E:event',
-    \ 'g:enum',
-    \ 'i:interface',
-    \ 'm:method',
-    \ 'n:namespace',
-    \ 'p:properties',
-    \ 's:struct',
-  \ ]
-\ }
+" let tags sorted according to their order int source files
+let g:tagbar_sort = 0
+
+let g:tagbar_ctags_bin = '/usr/bin/ctags'
+
+" let Tagbar start with vim
+autocmd VimEnter * nested :TagbarOpen
+
+" YouCompleteMe --------------------------------------- {{{2
+" https://github.com/Valloric/YouCompleteMe
+" git clone git://github.com/Valloric/YouCompleteMe.git
+" enable completion from tags
+let g:ycm_collect_identifiers_from_tags_files = 1
+
+" Vim-airline ----------------------------------------- {{{2
+" https://github.com/vim-airline/vim-airline
+" https://github.com/vim-airline/vim-airline-themes
+" git clone git://github.com/vim-airline/vim-airline.git
+" git clone git://github.com/vim-airline/vim-airline-themes.git
+let g:airline_theme = 'dark'
+let g:airline_powerline_fonts = 1
+
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
+
+" Make airlines appear all the time
+set laststatus=2
 
 " Commands, Mappings and Functions -------------------- {{{1
 " Tags ------------------------------------------------ {{{2
 set tags+=.tags;
 set tags+=tags;
 nnoremap <leader>gt :!ctags -R -f .tags<CR><CR>
+
