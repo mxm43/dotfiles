@@ -1,42 +1,5 @@
 " Li Mingyi's ~/.vimrc
 "
-" Vundle ---------------------------------------------- {{{1
-" Install Vundle:
-" git clone git://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-"
-" Usage:
-" :BundleList            - list configured bundles
-" :BundleInstall         - install(update) bundles
-" :BundleSearch          - search for plugins
-" :BundleClean           - confirm removal of bundles
-"
-" see :h vundle for more details or wiki for FAQ
-
-set rtp+=~/.vim/bundle/vundle
-call vundle#rc()
-
-Plugin 'gmarik/vundle'
-
-Plugin 'scrooloose/nerdtree'
-"Plugin 'SuperTab'
-
-Plugin 'Clam'
-Plugin 'Conque-Shell'
-Plugin 'DoxygenToolkit.vim'
-Plugin 'Gundo'
-Plugin 'majutsushi/tagbar'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'powerline/fonts'
-
-" Color Schemes
-Plugin 'tomasr/molokai'
-
-" Programming
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'SirVer/ultisnips'
-
 " Basic Settings -------------------------------------- {{{1
 set nocompatible
 syntax on
@@ -72,11 +35,17 @@ set incsearch
 set ruler
 set showcmd
 set title
-set smartcase
 set wildmenu
 set wildmode=list:longest,list:full
 
-set fdm=marker
+set foldmethod=marker
+
+" set smart case
+set ignorecase
+set smartcase
+
+" complete opts
+set completeopt=menu,longest
 
 " ignore files inside vcs dirs
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
@@ -93,6 +62,44 @@ endif
 " Fonts ----------------------------------------------- {{{2
 set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 11
 set guifontwide=WenQuanYi\ Micro\ Hei\ Mono
+
+" Vundle ---------------------------------------------- {{{1
+" Install Vundle:
+" git clone git://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+"
+" Usage:
+" :BundleList            - list configured bundles
+" :BundleInstall         - install(update) bundles
+" :BundleSearch          - search for plugins
+" :BundleClean           - confirm removal of bundles
+"
+" see :h vundle for more details or wiki for FAQ
+
+set rtp+=~/.vim/bundle/vundle
+call vundle#rc()
+
+Plugin 'gmarik/vundle'
+
+Plugin 'scrooloose/nerdtree'
+"Plugin 'SuperTab'
+
+Plugin 'Clam'
+Plugin 'Conque-Shell'
+Plugin 'DoxygenToolkit.vim'
+Plugin 'Gundo'
+Plugin 'majutsushi/tagbar'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'powerline/fonts'
+Plugin 'godlygeek/tabular'
+
+" Color Schemes
+Plugin 'tomasr/molokai'
+
+" Programming
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'SirVer/ultisnips'
 
 " Color Schemes --------------------------------------- {{{1
 if has("gui_running")
@@ -146,11 +153,9 @@ nnoremap <leader>nt :NERDTreeToggle<CR>
 
 let NERDTreeWinPos=1
 
-" SuperTab -------------------------------------------- {{{2
-" http://www.vim.org/scripts/script.php?script_id=1643
-" https://github.com/ervandew/supertab
-" git clone git://github.com/ervandew/supertab.git
-let g:SuperTabRetainCompletionType=1
+" Tabular --------------------------------------------- {{{2
+" http://github.com/godlikegeek/tabular
+" git clone git://github.com/godlikegeek/tabular.git
 
 " Tagbar ---------------------------------------------- {{{2
 " http://www.vim.org/scripts/script.php?script_id=3465
@@ -159,10 +164,10 @@ let g:SuperTabRetainCompletionType=1
 nnoremap <leader>tb :TagbarToggle<CR>
 
 let g:tagbar_left = 1
-let g:tagbar_width = 30
+let g:tagbar_width = 40
 
 " let g:tagbar_autoclose = 1
-let g:tagbar_autofocus = 1
+let g:tagbar_autofocus = 0
 let g:tagbar_autoshowtag = 1
 
 " let tags sorted according to their order int source files
@@ -176,8 +181,12 @@ autocmd VimEnter * nested :TagbarOpen
 " YouCompleteMe --------------------------------------- {{{2
 " https://github.com/Valloric/YouCompleteMe
 " git clone git://github.com/Valloric/YouCompleteMe.git
+
+" let g:ycm_global_ycm_extra_conf = '~/.vim/ycm/cpp/.ycm_extra_conf.py'
 " enable completion from tags
 let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_seed_identifiers_with_syntax = 1 
+let g:ycm_key_invoke_completion = '<C-a>'
 
 " Vim-airline ----------------------------------------- {{{2
 " https://github.com/vim-airline/vim-airline
@@ -199,3 +208,5 @@ set tags+=.tags;
 set tags+=tags;
 nnoremap <leader>gt :!ctags -R -f .tags<CR><CR>
 
+" Find Conflict Marks --------------------------------- {{{2
+map <leader>fc /\v^[<\|=>]{7}( .*\|$)<CR>
