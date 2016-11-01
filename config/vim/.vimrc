@@ -28,7 +28,7 @@ set autoindent
 set smartindent
 set cindent
 
-set colorcolumn=80
+set colorcolumn=81
 set hidden
 set hlsearch
 set incsearch
@@ -81,7 +81,6 @@ call vundle#rc()
 Plugin 'gmarik/vundle'
 
 Plugin 'scrooloose/nerdtree'
-"Plugin 'SuperTab'
 
 Plugin 'Clam'
 Plugin 'Conque-Shell'
@@ -100,6 +99,7 @@ Plugin 'tomasr/molokai'
 " Programming
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'SirVer/ultisnips'
+"Plugin 'ervandew/supertab'
 
 " Color Schemes --------------------------------------- {{{1
 if has("gui_running")
@@ -153,6 +153,12 @@ nnoremap <leader>nt :NERDTreeToggle<CR>
 
 let NERDTreeWinPos=1
 
+" SuperTab -------------------------------------------- {{{2
+" http://www.vim.org/scripts/script.php?script_id=1643
+" https://github.com/ervandew/supertab
+" git clone git://github.com/ervandew/supertab.git
+let g:SuperTabRetainCompletionType=1
+
 " Tabular --------------------------------------------- {{{2
 " http://github.com/godlikegeek/tabular
 " git clone git://github.com/godlikegeek/tabular.git
@@ -178,6 +184,16 @@ let g:tagbar_ctags_bin = '/usr/bin/ctags'
 " let Tagbar start with vim
 autocmd VimEnter * nested :TagbarOpen
 
+" Ultisnips ------------------------------------------- {{{2
+" SirVer/ultisnips
+" https://github.com/SirVer/ultisnips
+" git clone git://github.com/SirVer/ultisnips.git
+
+" remap Ultisnips
+let g:UltiSnipsExpandTrigger = '<C-j>'
+let g:UltiSnipsJumpForwardTrigger = '<C-j>'
+let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
+
 " YouCompleteMe --------------------------------------- {{{2
 " https://github.com/Valloric/YouCompleteMe
 " git clone git://github.com/Valloric/YouCompleteMe.git
@@ -187,6 +203,9 @@ autocmd VimEnter * nested :TagbarOpen
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_seed_identifiers_with_syntax = 1 
 let g:ycm_key_invoke_completion = '<C-a>'
+
+" not need confirm when load a config file
+let g:ycm_confirm_extra_conf=0
 
 " Vim-airline ----------------------------------------- {{{2
 " https://github.com/vim-airline/vim-airline
