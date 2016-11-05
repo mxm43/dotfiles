@@ -99,7 +99,7 @@ Plugin 'tomasr/molokai'
 " Programming
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'SirVer/ultisnips'
-"Plugin 'ervandew/supertab'
+Plugin 'ervandew/supertab'
 
 " Color Schemes --------------------------------------- {{{1
 if has("gui_running")
@@ -123,6 +123,21 @@ endif
 " https://bitbucket.org/sjl/clam.vim/
 " hg clone https://bitbucket.org/sjl/clam.vim
 nnoremap <leader>c :Clam<Space>
+
+" Cscope ---------------------------------------------- {{{2
+nmap <C-_>s :cs find s <C-R>=expand("<cword>")<CR><CR>
+nmap <C-_>g :cs find g <C-R>=expand("<cword>")<CR><CR>
+nmap <C-_>c :cs find c <C-R>=expand("<cword>")<CR><CR>
+nmap <C-_>t :cs find t <C-R>=expand("<cword>")<CR><CR>
+nmap <C-_>e :cs find e <C-R>=expand("<cword>")<CR><CR>
+nmap <C-_>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
+nmap <C-_>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+nmap <C-_>d :cs find d <C-R>=expand("<cword>")<CR><CR>
+
+set cscopequickfix=s-,c-,d-,i-,t-,e-
+
+nnoremap <F3> :cp<CR>
+nnoremap <F4> :cn<CR>
 
 " CtrlP ----------------------------------------------- {{{2
 " https://github.com/ctrlpvim/ctrlp
