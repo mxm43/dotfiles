@@ -139,6 +139,12 @@ set cscopequickfix=s-,c-,d-,i-,t-,e-
 nnoremap <F3> :cp<CR>
 nnoremap <F4> :cn<CR>
 
+if has("cscope")  
+  if filereadable("cscope.out")  
+    cs add cscope.out  
+  endif        
+endif  
+
 " CtrlP ----------------------------------------------- {{{2
 " https://github.com/ctrlpvim/ctrlp
 " git clone git://github.com/ctrlpvim/ctrlp.git
