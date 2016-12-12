@@ -100,6 +100,7 @@ Plugin 'tomasr/molokai'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'SirVer/ultisnips'
 Plugin 'ervandew/supertab'
+Plugin 'mileszs/ack.vim'
 
 " Color Schemes --------------------------------------- {{{1
 if has("gui_running")
@@ -117,6 +118,13 @@ else
 endif
 
 " Plugins --------------------------------------------- {{{1
+" ack.vim, Ack front-end for vim ---------------------- {{{2
+" http://www.vim.org/scripts/script.php?script_id=2572
+" https://github.com/mileszs/ack.vim/
+" git clone git://github.com/mileszs/ack.vim.git
+" https://github.com/ggreer/the_silver_searcher/
+let g:ackprg = 'ag --nogroup --nocolor --column'
+
 " Clam ------------------------------------------------ {{{2
 " http://www.vim.org/scripts/script.php?script_id=4000
 " https://github.com/sjl/clam.vim
@@ -149,6 +157,7 @@ endif
 " https://github.com/ctrlpvim/ctrlp
 " git clone git://github.com/ctrlpvim/ctrlp.git
 let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
+let g:ctrlp_by_filename = 1
 
 " Doxygen --------------------------------------------- {{{2
 " http://www.vim.org/scripts/script.php?script_id=987
