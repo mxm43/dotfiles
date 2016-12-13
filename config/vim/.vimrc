@@ -156,8 +156,17 @@ endif
 " CtrlP ----------------------------------------------- {{{2
 " https://github.com/ctrlpvim/ctrlp
 " git clone git://github.com/ctrlpvim/ctrlp.git
+
+" enable cache for ctrlp
+let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
+
+" only search the filename and use regex
 let g:ctrlp_by_filename = 1
+let g:ctrlp_regexp = 1
+
+" cancel the limit to max files number
+let g:ctrlp_max_files = 0
 
 " Doxygen --------------------------------------------- {{{2
 " http://www.vim.org/scripts/script.php?script_id=987
