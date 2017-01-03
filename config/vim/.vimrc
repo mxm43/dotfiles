@@ -167,6 +167,7 @@ let g:ctrlp_regexp = 1
 
 " cancel the limit to max files number
 let g:ctrlp_max_files = 0
+let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:20,results:20'
 
 " Doxygen --------------------------------------------- {{{2
 " http://www.vim.org/scripts/script.php?script_id=987
