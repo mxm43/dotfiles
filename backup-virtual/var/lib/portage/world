@@ -1,9 +1,6 @@
 app-admin/sudo
 app-admin/sysklogd
-app-editors/gvim
 app-editors/vim
-app-emulation/virtualbox-guest-additions
-app-i18n/ibus
 app-portage/eix
 app-portage/gentoolkit
 dev-util/ccache
@@ -11,7 +8,6 @@ dev-util/cscope
 dev-util/ctags
 dev-vcs/git
 dev-vcs/mercurial
-dev-vcs/rapidsvn
 media-fonts/dejavu
 net-analyzer/net-snmp
 net-analyzer/tcpdump
@@ -20,10 +16,9 @@ net-ftp/tftp-hpa
 net-misc/bridge-utils
 net-misc/dhcpcd
 sys-apps/ack
+sys-apps/mlocate
 sys-apps/the_silver_searcher
 sys-apps/usermode-utilities
-sys-apps/xinetd
 sys-boot/grub
-sys-devel/clang
 sys-fs/mtd-utils
 sys-kernel/gentoo-sources
