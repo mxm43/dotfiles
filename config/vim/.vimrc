@@ -27,6 +27,7 @@ set nowrap
 set autoindent
 set smartindent
 set cindent
+set cinoptions=g0
 
 set colorcolumn=81
 set hidden
@@ -97,7 +98,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'tomasr/molokai'
 
 " Programming
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
 Plugin 'SirVer/ultisnips'
 Plugin 'ervandew/supertab'
 Plugin 'mileszs/ack.vim'
