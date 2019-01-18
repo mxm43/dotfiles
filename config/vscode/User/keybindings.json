@@ -1,0 +1,4 @@
+// Place your key bindings in this file to overwrite the defaults
+[
+    { "key": "space b", "command": "workbench.action.toggleSidebarVisibility" , "when":"!editorTextFocus && !inputFocus"},
+]

@@ -1,0 +1,63 @@
+{
+    // for ccls
+    "ccls.launch.command": "/root/ccls/Release/ccls",
+    "ccls.cacheDirectory": "/tmp/.ccls-cache",
+    //"ccls.highlighting.enabled.types": true,
+    //"ccls.highlighting.enabled.freeStandingFunctions": true,
+    //"ccls.highlighting.enabled.memberFunctions": true,
+    //"ccls.highlighting.enabled.freeStandingVariables": true,
+    //"ccls.highlighting.enabled.memberVariables": true,
+    //"ccls.highlighting.enabled.namespaces": true,
+    //"ccls.highlighting.enabled.macros": true,
+    //"ccls.highlighting.enabled.enums": true,
+    //"ccls.highlighting.enabled.typeAliases": true,
+    //"ccls.highlighting.enabled.enumConstants": true,
+    //"ccls.highlighting.enabled.staticMemberFunctions": true,
+    //"ccls.highlighting.enabled.parameters": true,
+    //"ccls.highlighting.enabled.templateParameters": true,
+    //"ccls.highlighting.enabled.staticMemberVariables": true,
+    //"ccls.highlighting.enabled.globalVariables": true,
+
+    "explorer.confirmDelete": false,
+
+    // editor settings
+    "editor.fontFamily": "'Dejavu Sans Mono'",
+    "editor.fontSize": 18,
+
+    "editor.renderWhitespace": "all",
+    "editor.codeLens": false,
+    "editor.rulers": [80],
+
+    // for workbench
+    "workbench.sideBar.location": "right",
+    "workbench.colorTheme": "Visual Studio Dark",
+
+    //for vim
+    "vim.leader": "<space>",
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before":["<leader>","b"],
+            "commands":[{"command":"workbench.action.toggleSidebarVisibility" }]
+        },
+        {
+            "before":["<leader>","s"],
+            "commands":[{"command":"ccls.call","args":{"levels":2,"callee":true}}]
+        },
+        {
+            "before":["<leader>","j"],
+            "commands":[{"command":"ccls.navigate","args":{"direction":"R"}}]
+        },
+        {
+            "before":["<leader>","k"],
+            "commands":[{"command":"ccls.navigate","args":{"direction":"L"}}]
+        },
+        {
+            "before":["<leader>","h"],
+            "commands":[{"command":"ccls.navigate","args":{"direction":"U"}}]
+        },
+        {
+            "before":["<leader>","l"],
+            "commands":[{"command":"ccls.navigate","args":{"direction":"D"}}]
+        }
+    ],
+}
