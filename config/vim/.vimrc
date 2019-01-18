@@ -45,6 +45,9 @@ set foldmethod=marker
 set ignorecase
 set smartcase
 
+set list
+set listchars=tab:>-,trail:-
+
 " complete opts
 set completeopt=menu,longest
 
@@ -54,6 +57,8 @@ set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
 set wildignore+=*.o,*.obj,*.a,*.so,*.d
 
 set fileencodings=ucs-bom,utf8,cp936,gbk,big5,euc-jp,euc-kr,gb18130,latin1
+
+set shell=/bin/bash
 
 " Mouse Support --------------------------------------- {{{2
 if has('mouse')
@@ -185,6 +190,7 @@ let g:DoxygenToolkit_returnTag="@Returns:"
 nnoremap <leader>u :GundoToggle<CR>
 
 let g:gundo_right = 1
+let g:gundo_prefer_python3 = 1
 
 " NERDTree -------------------------------------------- {{{2
 " http://www.vim.org/scripts/script.php?script_id=1658
